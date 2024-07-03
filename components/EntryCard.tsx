@@ -1,11 +1,15 @@
-const EntryCard = ({
-  entry,
-}: {
+
+type EntryCardProps = {
   entry: {
     createdAt: string | number | Date
-    analysis?: { summary?: string; mood?: string }
+    analysis?: {
+      summary?: string
+      mood?: string
+    } | null
+    // ... other properties
   }
-}) => {
+}
+const EntryCard = ({ entry }: EntryCardProps) => {
   const date = new Date(entry.createdAt).toDateString()
   const analysis = entry.analysis || {}
 
