@@ -2,8 +2,7 @@ import { update } from '@/util/actions'
 import { analyzeEntry } from '@/util/ai'
 import { getUserFromClerkID } from '@/util/auth'
 import { prisma } from '@/util/db'
-import { NextResponse } from 'next/server'
-import { NextRequest } from 'next/server'
+import { NextResponse ,NextRequest } from 'next/server'
 
 export const DELETE = async (
   request: Request,
