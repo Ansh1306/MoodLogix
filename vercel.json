@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/*",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "pages/api/*",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "next.config.js",
+      "use": "@vercel/static-build"
+    },
+    {
+      "src": "prisma/schema.prisma",
+      "use": "@prisma/cli",
+      "config": {
+        "prisma": "prisma/schema.prisma"
+      }
+    },
+    {
+      "src": ".prisma/client/index.js",
+      "use": "@vercel/node"
+    }
+  ]
+}
