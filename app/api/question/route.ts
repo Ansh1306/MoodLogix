@@ -11,11 +11,16 @@ export const POST = async (request: NextRequest) => {
       userId: user.id,
     },
     select: {
+      id :true,
       content: true,
       createdAt: true,
     },
   })
+  const formattedEntries = entries.map((entry) => ({
+    ...entry,
+    createdAt: entry.createdAt.toISOString(),
+  }))
 
-  const answer = await qa(question, entries)
+  const answer = await qa(question, formattedEntries)
   return NextResponse.json({ data: answer })
 }
