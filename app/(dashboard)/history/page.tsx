@@ -24,10 +24,19 @@ const HistoryPage = async () => {
   return (
     <div className="h-full px-6 py-8">
       <div>
-        <h1 className="text-2xl mb-4">{`Avg. Sentiment: ${average}`}</h1>
+        <h1 className="text-2xl mb-4">{`Avg. Sentiment: ${average.toFixed(
+          2
+        )}`}</h1>
       </div>
       <div className="h-full w-full">
-        <HistoryChart data={analyses} />
+        <HistoryChart
+          data={analyses.map((a) => ({
+            updatedAt: a.createdAt.toISOString(),
+            sentimentScore: a.sentimentScore,
+            mood: a.mood, // Make sure this property exists in your data
+            color: a.color, // Make sure this property exists in your data
+          }))}
+        />
       </div>
     </div>
   )
