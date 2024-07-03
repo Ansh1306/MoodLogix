@@ -22,10 +22,10 @@ const getEntry = async (id: string) => {
 
 const JournalEditorPage = async ({ params }: { params: Params }) => {
   const entry = await getEntry(params.id)
-  
-    if (!entry) {
-      return <div>Entry not found</div>
-    }
+
+  if (!entry) {
+    return <div>Entry not found</div>
+  }
 
   return (
     <div className="w-full h-full">

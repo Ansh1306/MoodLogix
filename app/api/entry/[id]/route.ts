@@ -3,8 +3,13 @@ import { analyzeEntry } from '@/util/ai'
 import { getUserFromClerkID } from '@/util/auth'
 import { prisma } from '@/util/db'
 import { NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
 
-export const DELETE = async (request: Request, { params }) => {
+export const DELETE = async (
+  request: Request,
+  { params }: { params: { id: string } }
+) => {
+  // Added type definition for params
   const user = await getUserFromClerkID()
 
   await prisma.journalEntry.delete({
@@ -21,7 +26,10 @@ export const DELETE = async (request: Request, { params }) => {
   return NextResponse.json({ data: { id: params.id } })
 }
 
-export const PATCH = async (request: Request, { params }) => {
+export const PATCH = async (
+  request: Request,
+  { params }: { params: { id: string } }
+) => {
   const { updates } = await request.json()
   const user = await getUserFromClerkID()
 
