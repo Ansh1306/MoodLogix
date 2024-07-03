@@ -1,6 +1,7 @@
 import Editor from '@/components/Editor'
 import { getUserFromClerkID } from '@/util/auth'
 import { prisma } from '@/util/db'
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
 
 const getEntry = async (id: string) => {
   const user = await getUserFromClerkID()
@@ -19,8 +20,12 @@ const getEntry = async (id: string) => {
   return entry
 }
 
-const JournalEditorPage = async ({ params }) => {
+const JournalEditorPage = async ({ params }: { params: Params }) => {
   const entry = await getEntry(params.id)
+  
+    if (!entry) {
+      return <div>Entry not found</div>
+    }
 
   return (
     <div className="w-full h-full">
