@@ -15,7 +15,7 @@
     },
     {
       "src": "prisma/schema.prisma",
-      "use": "@prisma/cli",
+      "use": "prisma",
       "config": {
         "prisma": "prisma/schema.prisma"
       }
