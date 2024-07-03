@@ -1,18 +1,10 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "app", "use": "@vercel/static-build" },
-    { "src": "app/api/**/*", "use": "@vercel/node" },
-    { "src": "public/**/*", "use": "@vercel/static" }
-  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "app/.next",
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/app/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/app/$1"
+      "dest": "/api/$1"
     }
   ]
 }
