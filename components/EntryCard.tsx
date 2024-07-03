@@ -26,4 +26,8 @@ const EntryCard = ({ entry }: EntryCardProps) => {
   )
 }
 
+
+
+
 export default EntryCard
+
