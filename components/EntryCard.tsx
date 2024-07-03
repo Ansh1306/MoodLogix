@@ -1,4 +1,11 @@
-const EntryCard = ({ entry }) => {
+const EntryCard = ({
+  entry,
+}: {
+  entry: {
+    createdAt: string | number | Date
+    analysis?: { summary?: string; mood?: string }
+  }
+}) => {
   const date = new Date(entry.createdAt).toDateString()
   const analysis = entry.analysis || {}
 
